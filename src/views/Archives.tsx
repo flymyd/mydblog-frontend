@@ -110,21 +110,23 @@ const Archives: FC = () => {
         ]}></FilterRow>
         <div className="bg-white">
           <FluidWrapper alignStart style={{flex: 1}}>
-            <div>
-              {Object.keys(articles).map((k: string) => {
-                return <div key={k}>
-                  <div style={{marginTop: 52, marginBottom: 16}}>
-                    <span style={{fontSize: 28, fontWeight: 600}}>{k}</span>
+            {
+              Object.keys(articles).length > 0 ? <div>
+                {Object.keys(articles).map((k: string) => {
+                  return <div key={k}>
+                    <div style={{marginTop: 52, marginBottom: 16}}>
+                      <span style={{fontSize: 28, fontWeight: 600}}>{k}</span>
+                    </div>
+                    {
+                      articles[k].map((article: FreeObject) => {
+                        return <ArchivesListCard key={article.id} article={article}/>
+                      })
+                    }
                   </div>
-                  {
-                    articles[k].map((article: FreeObject) => {
-                      return <ArchivesListCard key={article.id} article={article}/>
-                    })
-                  }
-                </div>
-              })}
-              <Pagination totalPage={totalPages} pageNum={pageNum} setPageNum={setPageNum}></Pagination>
-            </div>
+                })}
+                <Pagination totalPage={totalPages} pageNum={pageNum} setPageNum={setPageNum}></Pagination>
+              </div> : <div>内容加载中...</div>
+            }
           </FluidWrapper>
         </div>
       </div>

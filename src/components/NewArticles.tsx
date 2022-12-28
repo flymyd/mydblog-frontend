@@ -78,7 +78,7 @@ const NewArticles: FC = () => {
   return (
     <FluidWrapper>
       <p style={newArticleTitleStyle}>最新文章</p>
-      {articleListRender()}
+      {articleList.length>0?articleListRender(): <div>内容加载中...</div>}
     </FluidWrapper>
   )
 }

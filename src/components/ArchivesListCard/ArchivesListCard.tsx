@@ -1,10 +1,11 @@
-import {FC, useEffect, useState} from "react";
+import {CSSProperties, FC, useEffect, useState} from "react";
 import {FreeObject} from "@/types/FreeObject";
 import useWindowWidth from "@/hooks/useWindowWidth";
 import {textButton} from "@/utils/NoSelect";
 import {useNavigate} from "react-router-dom";
 import {get} from "@/utils/request";
 
+const imgStyle: CSSProperties = {borderRadius: 16, width: 295, height: 166};
 const ArchivesListCard: FC<{ article: FreeObject, border?: boolean }> = ({
                                                                            article,
                                                                            border: hasBorder = true
@@ -14,7 +15,7 @@ const ArchivesListCard: FC<{ article: FreeObject, border?: boolean }> = ({
   const goDetail = (id: number) => {
     navi('/Detail?id=' + id)
   }
-  const [picURL, setPicUrl] = useState('');
+  const [picURL, setPicUrl] = useState<string>('');
   const getPoster = (uuid: any): any => {
     if (uuid) {
       get('/myfiles/getPic?uuid=' + uuid).then((res: any) => {
@@ -37,7 +38,9 @@ const ArchivesListCard: FC<{ article: FreeObject, border?: boolean }> = ({
     }} onClick={() => {
       goDetail(article.id)
     }} css={textButton} className="flex">
-      <img alt="暂无图片" src={picURL} style={{borderRadius: 16, width: 295, height: 166}}/>
+      {
+        picURL ? <img alt="暂无图片" src={picURL} style={imgStyle}/> : <div style={imgStyle}>图片加载中...</div>
+      }
       <div className="flex flex-col" style={windowWidth < 768 ? {marginLeft: 16, marginTop: 16} : {marginLeft: 32}}>
         <span style={{
           color: '#6e6e73',

@@ -34,7 +34,8 @@ const ArticleCard: FC<ArticleCardType> = (props: ArticleCardType, context) => {
          onClick={() => toDetail(id)}
          className={style.articleCardStyleConfig().root}>
       {
-        poster ? <img style={style.articleCardStyleConfig().img} src={picURL} alt={title}/> :
+        poster ? (picURL ? <img style={style.articleCardStyleConfig().img} src={picURL} alt={title}/> :
+            <div style={style.articleCardStyleConfig().img}>图片加载中...</div>) :
           <div style={style.articleCardStyleConfig().img}
                className="flex flex-row items-center justify-center bg-gray-500">暂无图片</div>
       }
