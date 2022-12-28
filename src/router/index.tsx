@@ -7,6 +7,7 @@ import Archives from "@/views/Archives";
 import FriendlyLink from "@/views/FriendlyLink";
 import Projects from "@/views/Projects";
 import Home from "@/views/Home";
+import About from "@/views/About";
 
 /**
  * 懒加载组件
@@ -26,7 +27,7 @@ function LazyWrapper(path: string) {
 let router = [
   {
     path: "/About",
-    element: LazyWrapper("/About"),
+    element: <About />,
   },
   {
     path: "/",
