@@ -1,0 +1,19 @@
+#root::-webkit-scrollbar {
+  display: none;
+}
+
+.App {
+  background: rgb(245, 245, 247);
+}
+
+.App::-webkit-scrollbar {
+  display: none;
+}
+
+.blog-framework::-webkit-scrollbar {
+  display: none;
+}
+
+.blog-main-body::-webkit-scrollbar {
+  display: none;
+}

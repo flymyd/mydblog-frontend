@@ -1,0 +1,21 @@
+.filter-row__select {
+  width: 245px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1D1D1F;
+  background: white;
+}
+
+.filter-row__options {
+  font-size: 14px;
+  font-weight: 600;
+  color: #777;
+}
+
+.filter-row__options:checked{
+  color: #1D1D1F;
+}
