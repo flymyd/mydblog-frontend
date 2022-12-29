@@ -9,7 +9,7 @@ function Footer() {
       style={{fontSize: width < 768 ? 14 : 16, fontWeight: 200}}
     >
       <span>Copyleft © 2022 Flymyd. All rights not reserved.</span>
-      <span style={width < 768 ? {marginTop: 10} : {marginLeft: 20}}>待备案</span>
+      {/*<span style={width < 768 ? {marginTop: 10} : {marginLeft: 20}}>待备案</span>*/}
     </div>
   )
 }
