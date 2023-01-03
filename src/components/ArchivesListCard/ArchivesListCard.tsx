@@ -18,11 +18,12 @@ const ArchivesListCard: FC<{ article: FreeObject, border?: boolean }> = ({
   const [picURL, setPicUrl] = useState<string>('');
   const getPoster = (uuid: any): any => {
     if (uuid) {
-      get('/myfiles/getPic?uuid=' + uuid).then((res: any) => {
-        if (res.statusCode === 200) {
-          setPicUrl(res.data)
-        } else setPicUrl('')
-      })
+      setPicUrl(import.meta.env.VITE_OBS_URL+uuid)
+      // get('/myfiles/getPic?uuid=' + uuid).then((res: any) => {
+      //   if (res.statusCode === 200) {
+      //     setPicUrl(res.data)
+      //   } else setPicUrl('')
+      // })
     }
   }
   useEffect(() => {

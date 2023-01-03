@@ -135,9 +135,10 @@ export function put(url: any, data: Object): Promise<unknown> {
  * @param uuid  请求参数
  * @returns {Promise}
  */
-export function download(url: any, uuid: string): Promise<unknown> {
+export function download(url: any, uuid?: string): Promise<unknown> {
   return new Promise((resolve, reject) => {
-    axios.get(url + '?uuid=' + uuid, {
+    const uri = uuid ? url + '?uuid=' + uuid : url;
+    axios.get(uri, {
       responseType: 'blob'
     }).then((response) => {
       resolve(response.data);

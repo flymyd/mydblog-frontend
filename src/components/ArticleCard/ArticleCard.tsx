@@ -11,11 +11,12 @@ const ArticleCard: FC<ArticleCardType> = (props: ArticleCardType, context) => {
   const [picURL, setPicUrl] = useState('');
   const getPoster = (uuid: any): any => {
     if (uuid) {
-      get('/myfiles/getPic?uuid=' + uuid).then((res: any) => {
-        if (res.statusCode === 200) {
-          setPicUrl(res.data)
-        } else setPicUrl('')
-      })
+      setPicUrl(import.meta.env.VITE_OBS_URL+uuid)
+      // get('/myfiles/getPic?uuid=' + uuid).then((res: any) => {
+      //   if (res.statusCode === 200) {
+      //     setPicUrl(res.data)
+      //   } else setPicUrl('')
+      // })
     }
   }
   useEffect(() => {
