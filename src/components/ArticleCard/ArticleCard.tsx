@@ -8,20 +8,6 @@ import {ArticleCardType} from "@/types/ArticleCardType";
 import {get} from "@/utils/request";
 
 const ArticleCard: FC<ArticleCardType> = (props: ArticleCardType, context) => {
-  const [picURL, setPicUrl] = useState('');
-  const getPoster = (uuid: any): any => {
-    if (uuid) {
-      setPicUrl(import.meta.env.VITE_OBS_URL+uuid)
-      // get('/myfiles/getPic?uuid=' + uuid).then((res: any) => {
-      //   if (res.statusCode === 200) {
-      //     setPicUrl(res.data)
-      //   } else setPicUrl('')
-      // })
-    }
-  }
-  useEffect(() => {
-    getPoster(props.poster)
-  }, [props.poster])
   const {type = "medium", title, createdDate, poster, tags, id, abstract} = props;
   const style = new ArticleCardStyleConfig(type);
   const navigate = useNavigate();
@@ -35,14 +21,13 @@ const ArticleCard: FC<ArticleCardType> = (props: ArticleCardType, context) => {
          onClick={() => toDetail(id)}
          className={style.articleCardStyleConfig().root}>
       {
-        poster ? (picURL ? <img style={style.articleCardStyleConfig().img} src={picURL} alt={title}/> :
-            <div style={style.articleCardStyleConfig().img}>图片加载中...</div>) :
+        poster ? <img style={style.articleCardStyleConfig().img} src={import.meta.env.VITE_OBS_URL + poster} alt={title}/> :
           <div style={style.articleCardStyleConfig().img}
                className="flex flex-row items-center justify-center bg-gray-500">暂无图片</div>
       }
       <div className="flex flex-col justify-between bg-white" style={style.getTextWrapperStyle()}>
         <div className="flex flex-col">
-          <span style={style.articleCardStyleConfig().title}>{title}</span>
+          <span style={style.articleCardStyleConfig().title as any}>{title}</span>
           {/*{*/}
           {/*  tags ? <div className="flex flex-row items-center" style={{marginTop: 5, gap: 10}}>*/}
           {/*    {tags.map(v =>*/}

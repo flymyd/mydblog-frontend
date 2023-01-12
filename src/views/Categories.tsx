@@ -92,7 +92,7 @@ const Categories: FC = () => {
                 return <div className="flex flex-row items-center"
                             key={article.id}
                             style={{
-                              paddingLeft: 20,
+                              padding: '0 20px',
                               borderBottom: index < articles.length - 1 ? '1px solid #d2d2d7' : 'none'
                             }}>
                   <ArchivesListCard article={article} border={false}/>

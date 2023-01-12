@@ -15,20 +15,6 @@ const ArchivesListCard: FC<{ article: FreeObject, border?: boolean }> = ({
   const goDetail = (id: number) => {
     navi('/Detail?id=' + id)
   }
-  const [picURL, setPicUrl] = useState<string>('');
-  const getPoster = (uuid: any): any => {
-    if (uuid) {
-      setPicUrl(import.meta.env.VITE_OBS_URL+uuid)
-      // get('/myfiles/getPic?uuid=' + uuid).then((res: any) => {
-      //   if (res.statusCode === 200) {
-      //     setPicUrl(res.data)
-      //   } else setPicUrl('')
-      // })
-    }
-  }
-  useEffect(() => {
-    getPoster(article.poster)
-  }, [article.poster])
   return (
     <div style={{
       borderTop: hasBorder ? '1px solid #d2d2d7' : 'none',
@@ -40,7 +26,9 @@ const ArchivesListCard: FC<{ article: FreeObject, border?: boolean }> = ({
       goDetail(article.id)
     }} css={textButton} className="flex">
       {
-        picURL ? <img alt="暂无图片" src={picURL} style={imgStyle}/> : <div style={imgStyle}>图片加载中...</div>
+        article.poster ? <img alt="暂无图片" src={import.meta.env.VITE_OBS_URL + article.poster} style={imgStyle}/> :
+          <div style={imgStyle}
+               className="flex flex-row items-center justify-center bg-gray-500">暂无图片</div>
       }
       <div className="flex flex-col" style={windowWidth < 768 ? {marginLeft: 16, marginTop: 16} : {marginLeft: 32}}>
         <span style={{
@@ -48,7 +36,14 @@ const ArchivesListCard: FC<{ article: FreeObject, border?: boolean }> = ({
           fontSize: 12,
           fontWeight: 700
         }}>{article.tags.length > 0 ? article.tags.map((tag: FreeObject) => tag.name).join(", ") : '记录'}</span>
-        <span style={{fontSize: 24, fontWeight: 700, lineHeight: '60px'}}>{article.title}</span>
+        <span style={{
+          fontSize: 24, fontWeight: 700,
+          // width: '80%',
+          lineHeight: '60px',
+          // whiteSpace: 'nowrap',
+          // overflow: 'hidden',
+          // textOverflow: 'ellipsis'
+        }}>{article.title}</span>
         <span style={{
           color: '#6e6e73',
           fontSize: 14,

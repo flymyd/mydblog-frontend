@@ -1,7 +1,7 @@
 import React, {CSSProperties} from "react";
 import {randomColor} from "@/utils/RandomColor";
 
-export const dateStyle = {fontSize: "14px", fontWeight: 600, color: "#6e6e73"};
+export const dateStyle = {fontSize: "14px", fontWeight: 600, color: "#6e6e73", lineHeight: '2em'};
 export const getTagStyle = (): CSSProperties => {
   const style: CSSProperties = {
     padding: '3px 8px',
@@ -31,18 +31,27 @@ export class ArticleCardStyleConfig {
     this.type = type;
   }
 
+  publicTitleStyle = {
+    fontWeight: 700,
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
+  }
   articleCardStyleConfig = () => {
     let config = {
       root: "flex flex-col",
       img: {width: "100%", height: "266px"},
-      title: {fontSize: "24px", fontWeight: 700},
+      title: {
+        fontSize: "24px",
+        ...this.publicTitleStyle
+      },
       abstract: {fontSize: 16, lineHeight: '2em', color: '#6E6E73', margin: '10px 0'},
     };
     if (this.type == "large") {
       config = {
         root: "flex flex-row",
         img: {width: "60%", height: "362px"},
-        title: {fontSize: "32px", fontWeight: 700},
+        title: {fontSize: "32px", ...this.publicTitleStyle},
         abstract: {fontSize: 16, lineHeight: '2em', color: '#6E6E73', margin: 'none'},
       }
     }
