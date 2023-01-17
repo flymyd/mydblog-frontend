@@ -1,8 +1,8 @@
-import {defineConfig} from 'vite'
+import {defineConfig, loadEnv} from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path';
 
-export default defineConfig({
+export default defineConfig(({ mode, command }) =>({
   plugins: [
     react({
       jsxImportSource: "@emotion/react",
@@ -39,5 +39,14 @@ export default defineConfig({
         javascriptEnabled: true, // 支持内联 JavaScript
       }
     }
-  }
-})
+  },
+  build: {
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: command === "build" && loadEnv(mode, __dirname).VITE_API_ENV === "prod",
+        drop_debugger: command === "build" && loadEnv(mode, __dirname).VITE_API_ENV === "prod"
+      }
+    }
+  },
+}))
