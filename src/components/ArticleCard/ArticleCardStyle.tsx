@@ -75,6 +75,6 @@ export class ArticleCardStyleConfig {
   }
 
   getTextWrapperStyle = () => {
-    return {padding: this.type == "small" ? "24px" : "32px", minHeight: this.getTextWrapperHeight()}
+    return {flex: 1, padding: this.type == "small" ? "24px" : "32px", minHeight: this.getTextWrapperHeight()}
   }
 }
