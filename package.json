@@ -22,7 +22,8 @@
     "react-router-dom": "^6.3.0",
     "react-spring": "^9.5.4",
     "react-syntax-highlighter": "^15.5.0",
-    "remark-gfm": "^3.0.1"
+    "remark-gfm": "^3.0.1",
+    "terser": "^5.16.1"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.10.2",
