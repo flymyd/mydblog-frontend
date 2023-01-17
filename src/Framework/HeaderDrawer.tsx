@@ -3,6 +3,7 @@ import {css} from "@emotion/react";
 import {NavLink} from "react-router-dom";
 import {animated, useSpring} from "react-spring";
 import useWatch from "@/hooks/useWatch";
+import {NavType} from "@/types/NavType";
 
 const HeaderDrawerCSS = css(`
   position: fixed;
@@ -20,7 +21,7 @@ const HeadDrawerCellCSS = css(`
 `)
 
 interface HeaderDrawerProps {
-  navList: { route: string, name: string }[],
+  navList: Array<NavType>,
   closeDrawer: Function,
   show: boolean
 }
@@ -40,13 +41,13 @@ const HeaderDrawer: FC<HeaderDrawerProps> = ({navList, closeDrawer, show}) => {
   return (
     <animated.div style={animation} css={HeaderDrawerCSS} className="flex flex-row justify-center items-start">
       <div style={{width: '90%'}} className="flex flex-col justify-center">
-        {navList.map(nav => <NavLink to={nav.route} key={nav.route}
-                                     onClick={() => {
-                                       closeDrawer()
-                                     }}
-                                     css={HeadDrawerCellCSS} style={({isActive}) =>
+        {navList.map(nav => nav?.type != 'icon' ? <NavLink to={nav.route} key={nav.route}
+                                                           onClick={() => {
+                                                             closeDrawer()
+                                                           }}
+                                                           css={HeadDrawerCellCSS} style={({isActive}) =>
           isActive && nav.route !== '/' ? {color: "white"} : {color: 'rgba(245,245,247,0.8)'}
-        }>{nav.name}</NavLink>)}
+        }>{nav.name}</NavLink> : nav.icon)}
       </div>
     </animated.div>
   )
