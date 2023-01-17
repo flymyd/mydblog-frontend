@@ -5,13 +5,13 @@ import {textButton} from "@/utils/NoSelect";
 import {useNavigate} from "react-router-dom";
 import {get} from "@/utils/request";
 
-const imgStyle: CSSProperties = {borderRadius: 16, width: 295, height: 166};
 const ArchivesListCard: FC<{ article: FreeObject, border?: boolean }> = ({
                                                                            article,
                                                                            border: hasBorder = true
                                                                          }, context) => {
   const windowWidth = useWindowWidth();
   const navi = useNavigate();
+  const imgStyle: CSSProperties = {borderRadius: 16, width: 295, height: 166, marginLeft: windowWidth < 768 ? 10 : 0};
   const goDetail = (id: number) => {
     navi('/Detail?id=' + id)
   }
@@ -30,7 +30,7 @@ const ArchivesListCard: FC<{ article: FreeObject, border?: boolean }> = ({
           <div style={imgStyle}
                className="flex flex-row items-center justify-center bg-gray-500">暂无图片</div>
       }
-      <div className="flex flex-col" style={windowWidth < 768 ? {marginLeft: 16, marginTop: 16} : {marginLeft: 32}}>
+      <div className="flex flex-col" style={{flex:1,...windowWidth < 768 ? {marginLeft: 16, marginTop: 16} : {marginLeft: 32}}}>
         <span style={{
           color: '#6e6e73',
           fontSize: 12,

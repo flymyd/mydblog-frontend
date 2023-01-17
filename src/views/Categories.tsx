@@ -84,15 +84,10 @@ const Categories: FC = () => {
           <div style={{width: '100%'}}>
             {
               articles.map((article: FreeObject, index: number) => {
-                // return <div
-                //   className={["flex flex-row items-center", screenWidth < 768 ? "justify-center" : ""].join(" ")}
-                //   style={{paddingLeft: screenWidth < 768 ? 0 : 20, borderBottom: '1px solid #d2d2d7'}}>
-                //   <ArchivesListCard key={article.id} article={article} border={false}/>
-                // </div>
                 return <div className="flex flex-row items-center"
                             key={article.id}
                             style={{
-                              padding: '0 20px',
+                              padding: screenWidth < 768 ? '' : '0 20px',
                               borderBottom: index < articles.length - 1 ? '1px solid #d2d2d7' : 'none'
                             }}>
                   <ArchivesListCard article={article} border={false}/>

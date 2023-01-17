@@ -41,6 +41,7 @@ export class ArticleCardStyleConfig {
     let config = {
       root: "flex flex-col",
       img: {width: "100%", height: "266px", objectFit: 'scale-down'},
+      imgCover: {background: '#D5D5D7', width: '100%'},
       title: {
         fontSize: "24px",
         ...this.publicTitleStyle
@@ -50,12 +51,16 @@ export class ArticleCardStyleConfig {
     if (this.type == "large") {
       config = {
         root: "flex flex-row",
-        img: {width: "470px", height: "362px", objectFit: 'scale-down'},
+        img: {width: "100%", height: "362px", objectFit: 'contain'},
+        imgCover: {background: '#D5D5D7', width: '470px'},
         title: {fontSize: "32px", ...this.publicTitleStyle},
         abstract: {fontSize: 16, lineHeight: '2em', color: '#6E6E73', margin: 'none'},
       }
     }
-    return config;
+    // if (this.type == "small") {
+    //   config.img = {width: "100%", height: "266px", objectFit: 'scale-down'}
+    // }
+    return config as any;
   }
 
   getTextWrapperHeight = () => {
@@ -70,6 +75,6 @@ export class ArticleCardStyleConfig {
   }
 
   getTextWrapperStyle = () => {
-    return {width: "100%", padding: this.type == "small" ? "24px" : "32px", minHeight: this.getTextWrapperHeight()}
+    return {padding: this.type == "small" ? "24px" : "32px", minHeight: this.getTextWrapperHeight()}
   }
 }

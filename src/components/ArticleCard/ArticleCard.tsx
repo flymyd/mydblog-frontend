@@ -21,7 +21,9 @@ const ArticleCard: FC<ArticleCardType> = (props: ArticleCardType, context) => {
          onClick={() => toDetail(id)}
          className={style.articleCardStyleConfig().root}>
       {
-        poster ? <img style={style.articleCardStyleConfig().img} src={import.meta.env.VITE_OBS_URL + poster} alt={title}/> :
+        poster ? <div style={style.articleCardStyleConfig().imgCover}>
+            <img style={style.articleCardStyleConfig().img} src={import.meta.env.VITE_OBS_URL + poster} alt={title}/>
+          </div> :
           <div style={style.articleCardStyleConfig().img}
                className="flex flex-row items-center justify-center bg-gray-500">暂无图片</div>
       }
