@@ -40,7 +40,7 @@ export class ArticleCardStyleConfig {
   articleCardStyleConfig = () => {
     let config = {
       root: "flex flex-col",
-      img: {width: "100%", height: "266px"},
+      img: {width: "100%", height: "266px", objectFit: 'scale-down'},
       title: {
         fontSize: "24px",
         ...this.publicTitleStyle
@@ -50,7 +50,7 @@ export class ArticleCardStyleConfig {
     if (this.type == "large") {
       config = {
         root: "flex flex-row",
-        img: {width: "60%", height: "362px"},
+        img: {width: "470px", height: "362px", objectFit: 'scale-down'},
         title: {fontSize: "32px", ...this.publicTitleStyle},
         abstract: {fontSize: 16, lineHeight: '2em', color: '#6E6E73', margin: 'none'},
       }
