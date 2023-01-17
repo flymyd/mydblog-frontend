@@ -25,10 +25,10 @@ function LazyWrapper(path: string) {
 }
 
 let router = [
-  {
-    path: "/About",
-    element: <About />,
-  },
+  // {
+  //   path: "/About",
+  //   element: <About />,
+  // },
   {
     path: "/",
     element: <Framework/>,
@@ -60,6 +60,10 @@ let router = [
       {
         path: "/FriendlyLink",
         element: <FriendlyLink/>
+      },
+      {
+        path: "/About",
+        element: <About />,
       },
     ],
   },
