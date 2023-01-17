@@ -43,8 +43,7 @@ const Categories: FC = () => {
             return category.articles;
           }
         }).filter((v: FreeObject) => v !== undefined).flat();
-        console.log(articlesList)
-        setArticles(articlesList);
+        setArticles(articlesList.sort((a: any, b: any) => new Date(b.createdDate).getTime() - new Date(a.createdDate).getTime()));
       }
     })
   }, [choseId])
