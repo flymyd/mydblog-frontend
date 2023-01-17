@@ -1,7 +1,5 @@
 import {FC, useEffect, useState} from "react";
 import FluidWrapper from "../Framework/FluidWrapper";
-import {Icon} from "@iconify/react";
-import {css} from "@emotion/react";
 import PageTitle from "@/components/PageTitle";
 import CategoryList from "@/components/CategoryList/CategoryList";
 import CategoryContext from "@/components/CategoryList/Context";
@@ -9,8 +7,6 @@ import FilterRow from "@/components/FilterRow/FilterRow";
 import useWindowWidth from "@/hooks/useWindowWidth";
 import {get} from "@/utils/request";
 import {FreeObject} from "@/types/FreeObject";
-import Pagination from "@/components/Pagination/Pagination";
-import {useParams} from "react-router-dom";
 import ArchivesListCard from "@/components/ArchivesListCard/ArchivesListCard";
 
 const Categories: FC = () => {

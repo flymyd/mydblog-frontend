@@ -1,5 +1,3 @@
-import {ReactNode} from "react";
-
 export interface ArticleCardType {
   type?: "large" | "medium" | "small",
   title?: string,

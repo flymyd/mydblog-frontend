@@ -1,5 +1,4 @@
 import {FC} from "react";
-import useWindowWidth from "@/hooks/useWindowWidth";
 import NewArticles from "@/components/NewArticles";
 
 const HomeWrapperStyle = {minHeight: 'calc(100vh - 44px)'};

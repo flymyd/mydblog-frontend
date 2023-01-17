@@ -1,7 +1,7 @@
-import React, {CSSProperties, FC, useEffect, useState} from "react";
+import React, {FC} from "react";
 import {css} from "@emotion/react";
 import {NavLink} from "react-router-dom";
-import {animated, config, useSpring} from "react-spring";
+import {animated, useSpring} from "react-spring";
 import useWatch from "@/hooks/useWatch";
 
 const HeaderDrawerCSS = css(`

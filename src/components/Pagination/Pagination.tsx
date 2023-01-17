@@ -1,4 +1,4 @@
-import {Dispatch, FC, SetStateAction, useEffect, useState} from "react";
+import {FC, SetStateAction} from "react";
 import {css} from "@emotion/react";
 import PaginationButton from "@/components/Pagination/PaginationButton";
 

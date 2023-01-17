@@ -3,7 +3,6 @@ import useWindowWidth from "@/hooks/useWindowWidth";
 import ArticleCard from "@/components/ArticleCard/ArticleCard";
 import {JSX} from "@emotion/react/jsx-runtime";
 import FluidWrapper from "@/Framework/FluidWrapper";
-import tags from "@/views/Tags";
 import {ArticleCardType} from "@/types/ArticleCardType";
 import {get} from "@/utils/request";
 

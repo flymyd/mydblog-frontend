@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useEffect, useState} from 'react';
 
 function useScrollTop() {
   const [height, setHeight] = useState(document.documentElement.scrollTop || document.body.scrollTop);

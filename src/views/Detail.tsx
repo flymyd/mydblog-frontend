@@ -1,11 +1,9 @@
 import React, {FC, useEffect, useState} from "react";
 import {useSearchParams} from "react-router-dom";
 // import 'github-markdown-css';
-import axios from "axios";
 import FluidWrapper from "@/Framework/FluidWrapper";
 import MarkdownLoader from "@/components/MarkdownLoader/MarkdownLoader";
 import {download, get} from "@/utils/request";
-import {FreeObject} from "@/types/FreeObject";
 
 const Detail: FC = () => {
   let [searchParams, setSearchParams] = useSearchParams();

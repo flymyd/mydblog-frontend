@@ -1,9 +1,8 @@
-import {CSSProperties, FC, useEffect, useState} from "react";
+import {CSSProperties, FC} from "react";
 import {FreeObject} from "@/types/FreeObject";
 import useWindowWidth from "@/hooks/useWindowWidth";
 import {textButton} from "@/utils/NoSelect";
 import {useNavigate} from "react-router-dom";
-import {get} from "@/utils/request";
 
 const ArchivesListCard: FC<{ article: FreeObject, border?: boolean }> = ({
                                                                            article,

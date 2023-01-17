@@ -1,11 +1,7 @@
-import {FC, JSXElementConstructor, ReactElement, ReactFragment, ReactPortal, useEffect, useState} from "react";
-import {
-  ArticleCardStyleConfig, articleWrapperStyle,
-  dateStyle, getTagStyle,
-} from "@/components/ArticleCard/ArticleCardStyle";
+import {FC} from "react";
+import {ArticleCardStyleConfig, articleWrapperStyle, dateStyle,} from "@/components/ArticleCard/ArticleCardStyle";
 import {useNavigate} from "react-router-dom";
 import {ArticleCardType} from "@/types/ArticleCardType";
-import {get} from "@/utils/request";
 
 const ArticleCard: FC<ArticleCardType> = (props: ArticleCardType, context) => {
   const {type = "medium", title, createdDate, poster, tags, id, abstract} = props;
