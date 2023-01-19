@@ -39,7 +39,20 @@ const Categories: FC = () => {
             return category.articles;
           }
         }).filter((v: FreeObject) => v !== undefined).flat();
-        setArticles(articlesList.sort((a: any, b: any) => new Date(b.createdDate).getTime() - new Date(a.createdDate).getTime()));
+        const idList: Array<number> = [];
+        const resList: any = [];
+        articlesList.forEach((v: FreeObject) => {
+          if (!idList.includes(v.id)) {
+            idList.push(v.id)
+            resList.push(v)
+          }
+        })
+        setArticles(resList.sort((a: any, b: any) => new Date(b.createdDate).getTime() - new Date(a.createdDate).getTime()));
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth'
+        })
       }
     })
   }, [choseId])

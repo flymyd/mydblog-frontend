@@ -14,7 +14,7 @@ export interface CategoryListItemType {
 
 const CategoryList: FC<CategoryListType> = ({options}) => {
   return (
-    <ul css={textButton} style={{width: '80%'}}>
+    <ul css={textButton} style={{width: '80%', position: 'sticky', top: 50}}>
       {options.map(row => {
         return <li key={row.value}>
           <h3 style={{

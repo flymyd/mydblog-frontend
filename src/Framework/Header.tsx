@@ -26,7 +26,7 @@ export const Header: FC = () => {
       icon: <img key='github'
                  style={{width: 30, height: 30, cursor: 'pointer', margin: windowWidth < 768 ? '8px 0' : ''}}
                  onClick={() => {
-                   window.open('https://github.com/flymyd')
+                   window.open('https://github.com/flymyd/mydblog-frontend')
                  }}
                  src='https://mydblog.obs.cn-east-3.myhuaweicloud.com/files/c24e12a7-12e1-4bf0-b43b-e63692cfd9f2'/>
     },
