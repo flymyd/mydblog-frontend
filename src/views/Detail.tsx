@@ -12,7 +12,6 @@ const Detail: FC = () => {
     const id = searchParams.get('id')
     if (id) {
       get('/article/' + id).then((res: any) => {
-        console.log(res)
         if (res.statusCode === 200) {
           const data = res.data;
           download('/myfiles/getFile', data.article).then((resp: any) => {
