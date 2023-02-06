@@ -30,6 +30,10 @@ let router = [
   //   element: <About />,
   // },
   {
+    path: "/Escape",
+    element: LazyWrapper('/Escape')
+  },
+  {
     path: "/",
     element: <Framework/>,
     children: [

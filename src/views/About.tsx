@@ -1,7 +1,7 @@
 import {FC} from "react";
 import PageTitle from "@/components/PageTitle";
 import FluidWrapper from "@/Framework/FluidWrapper";
-
+const resumeUrl = 'https://mydblog.obs.cn-east-3.myhuaweicloud.com/resume.pdf'
 const About: FC = ()=>{
   return (
     <>
