@@ -11,7 +11,9 @@
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^11.10.0",
     "@emotion/core": "^11.0.0",
-    "@emotion/react": "^11.10.0",
+    "@emotion/react": "^11.10.5",
+    "@mantine/core": "^5.10.3",
+    "@mantine/hooks": "^5.10.3",
     "axios": "^0.27.2",
     "github-markdown-css": "^5.1.0",
     "qs": "^6.11.0",
