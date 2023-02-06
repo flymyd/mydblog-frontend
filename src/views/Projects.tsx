@@ -3,9 +3,10 @@ import PageTitle from "../components/PageTitle";
 import FluidWrapper from "../Framework/FluidWrapper";
 import ProjectsStyle from "@/assets/css/views/Projects.module.scss";
 import {useNavigate} from "react-router-dom";
+import {CONST} from "@/utils/CONST";
 
 const projectsList = [
-  {img: '', title: '前端逃生舱', route: '/Escape'}
+  {img: 'a145094a-e1e5-47cb-a85a-0ba278620e9f', route: '/Escape'},
 ]
 const Projects: FC = () => {
   const navigate = useNavigate()
@@ -20,10 +21,9 @@ const Projects: FC = () => {
           <ul>
             {projectsList.map(v => {
               return <div>
-                <li style={{backgroundImage: v.img, cursor: 'pointer'}} onClick={() => {
+                <li style={{background: `url(${CONST.obsPath + v.img})`, cursor: 'pointer'}} onClick={() => {
                   clickCard(v.route)
                 }}>
-                  <span>{v.title}</span>
                 </li>
               </div>
             })}
