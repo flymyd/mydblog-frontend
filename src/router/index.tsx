@@ -16,7 +16,7 @@ import About from "@/views/About";
  */
 function LazyWrapper(path: string) {
   // React.lazy接受的组件必须为export default形式
-  const Component = lazy(() => import(`../views${path}`))
+  const Component = lazy(() => import(`../views/${path}.tsx`))
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <Component/>
@@ -31,7 +31,7 @@ let router = [
   // },
   {
     path: "/Escape",
-    element: LazyWrapper('/Escape')
+    element: LazyWrapper('Escape')
   },
   {
     path: "/",
@@ -67,7 +67,7 @@ let router = [
       },
       {
         path: "/About",
-        element: <About />,
+        element: <About/>,
       },
     ],
   },
