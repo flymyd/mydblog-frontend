@@ -1,8 +1,7 @@
-import {FC, useEffect, useState} from "react";
+import {FC, useEffect, useLayoutEffect, useRef, useState} from "react";
 import PageTitle from "@/components/PageTitle";
 import FluidWrapper from "@/Framework/FluidWrapper";
 import Resume from "@/components/Resume";
-
 
 const About: FC = () => {
   return (
@@ -10,10 +9,9 @@ const About: FC = () => {
       <PageTitle title="关于我" subtitle="欢迎来到前端妙妙屋！"/>
       <FluidWrapper>
         {/*携剑去 辞别楼外青山 终换得一骑白玉骢过洛阳*/}
-        <span>施工中...</span>
-        {/*<div className="mt-3">*/}
-        {/*  <Resume />*/}
-        {/*</div>*/}
+        <div className="mt-3">
+          <Resume />
+        </div>
       </FluidWrapper>
     </>
   )
