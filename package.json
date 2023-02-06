@@ -21,6 +21,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.3",
+    "react-pdf": "^6.2.2",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "react-spring": "^9.5.4",
@@ -29,6 +30,7 @@
     "terser": "^5.16.1"
   },
   "devDependencies": {
+    "@chialab/esbuild-plugin-meta-url": "^0.17.2",
     "@emotion/babel-plugin": "^11.10.2",
     "@iconify/icons-akar-icons": "^1.2.11",
     "@iconify/react": "^4.0.1",
@@ -36,6 +38,7 @@
     "@types/qs": "^6.9.7",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "@types/react-pdf": "^6.2.0",
     "@types/react-syntax-highlighter": "^15.5.5",
     "@vitejs/plugin-react": "^2.0.1",
     "autoprefixer": "^10.4.8",
