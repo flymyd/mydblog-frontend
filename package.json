@@ -14,6 +14,7 @@
     "@emotion/react": "^11.10.5",
     "@mantine/core": "^5.10.3",
     "@mantine/hooks": "^5.10.3",
+    "@tabler/icons-react": "^2.2.0",
     "axios": "^0.27.2",
     "github-markdown-css": "^5.1.0",
     "qs": "^6.11.0",

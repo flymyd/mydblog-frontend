@@ -20,7 +20,7 @@ const Projects: FC = () => {
         <div className={ProjectsStyle.grids}>
           <ul>
             {projectsList.map(v => {
-              return <div>
+              return <div key={v.route}>
                 <li style={{background: `url(${CONST.obsPath + v.img})`, cursor: 'pointer'}} onClick={() => {
                   clickCard(v.route)
                 }}>
