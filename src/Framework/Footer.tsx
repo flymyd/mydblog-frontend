@@ -9,7 +9,7 @@ function Footer() {
   useEffect(() => {
     get('/caches/getLastDayVisitors').then((res: any) => {
       if (res.statusCode === 200) {
-        setVisitors(res.data)
+        setVisitors(res?.data ?? 0)
       }
     })
   }, [])
@@ -20,7 +20,10 @@ function Footer() {
     >
       <span>Copyleft © 2022 Flymyd. All rights not reserved.</span>
       <span style={width < 768 ? {marginTop: 10} : {marginLeft: 20}}>Deployed on Vercel, Accelerated & Secured by Cloudflare.</span>
-      <span style={width < 768 ? {marginTop: 10} : {marginLeft: 20}}>今日独立访客数：{visitors}</span>
+      {
+        visitors ?
+          <span style={width < 768 ? {marginTop: 10} : {marginLeft: 20}}>今日独立访客数：{visitors}</span> : <></>
+      }
     </div>
   )
 }
