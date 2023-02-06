@@ -30,7 +30,7 @@ const Resume: FC = () => {
   return (
     <Document file={resumeUrl} onLoadSuccess={onDocumentLoadSuccess} onLoadError={console.error}>
       {Array.from(new Array(numPages), (el, index) => <Page key={`page_${index + 1}`} pageNumber={index + 1}
-                                                            width={width < 736 ? width * 0.9 : 736}/>)}
+                                                            width={width < 736 ? width * 0.9 : 980}/>)}
     </Document>
   )
 }
