@@ -11,13 +11,15 @@ const resumeUrl = 'https://mydblog.obs.cn-east-3.myhuaweicloud.com/resume.pdf'
 const Resume: FC = () => {
   const [numPages, setNumPages] = useState(null);
   const windowWidth = useWindowWidth();
+
   function onDocumentLoadSuccess({numPages}: { numPages: any }) {
     setNumPages(numPages);
   }
+
   return (
     <Document file={resumeUrl} onLoadSuccess={onDocumentLoadSuccess} onLoadError={console.error}>
       {Array.from(new Array(numPages), (el, index) => <Page key={`page_${index + 1}`} pageNumber={index + 1}
-                                                            width={windowWidth<768?windowWidth*0.9:980}/>)}
+                                                            width={windowWidth < 980 ? windowWidth * 0.9 : 980}/>)}
     </Document>
   )
 }
