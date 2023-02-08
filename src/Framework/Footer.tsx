@@ -22,7 +22,7 @@ function Footer() {
       <span style={width < 768 ? {marginTop: 10} : {marginLeft: 20}}>Deployed on Vercel, Accelerated & Secured by Cloudflare.</span>
       {
         visitors ?
-          <span style={width < 768 ? {marginTop: 10} : {marginLeft: 20}}>今日独立访客数：{visitors}</span> : <></>
+          <span style={width < 768 ? {marginTop: 10} : {marginLeft: 20}}>24小时内独立访客数：{visitors}</span> : <></>
       }
     </div>
   )

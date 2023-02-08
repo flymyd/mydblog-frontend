@@ -39,35 +39,35 @@ let router = [
     children: [
       {
         path: "",
-        element: <Home></Home>
+        element: LazyWrapper('Home')
       },
       {
         path: "/Categories",
-        element: <Categories/>
+        element: LazyWrapper('Categories')
       },
       {
         path: "/Tags",
-        element: <Tags/>
+        element: LazyWrapper('Tags')
       },
       {
         path: "/Detail",
-        element: <Detail/>
+        element: LazyWrapper('Detail')
       },
       {
         path: "/Archives/:page",
-        element: <Archives/>
+        element: LazyWrapper('Archives')
       },
       {
         path: "/Projects",
-        element: <Projects/>
+        element: LazyWrapper('Projects')
       },
       {
         path: "/FriendlyLink",
-        element: <FriendlyLink/>
+        element: LazyWrapper('FriendlyLink')
       },
       {
         path: "/About",
-        element: <About/>,
+        element: LazyWrapper('About'),
       },
     ],
   },
