@@ -4,6 +4,7 @@ import 'react-pdf/dist/esm/Page/TextLayer.css';
 import pdfWorker from 'pdfjs-dist/build/pdf.worker.js?url';
 import {Document, Page} from 'react-pdf/dist/esm/entry.vite';
 import {pdfjs} from "react-pdf";
+import {LoadingOverlay} from "@mantine/core";
 
 pdfjs.GlobalWorkerOptions.workerSrc = pdfWorker;
 const resumeUrl = 'https://mydblog.obs.cn-east-3.myhuaweicloud.com/resume.pdf'
@@ -23,12 +24,14 @@ const Resume: FC = () => {
       window.removeEventListener('resize', resizeUpdate);
     }
   }, []);
+
   function onDocumentLoadSuccess({numPages}: { numPages: any }) {
     setNumPages(numPages);
   }
 
   return (
-    <Document file={resumeUrl} onLoadSuccess={onDocumentLoadSuccess} onLoadError={console.error}>
+    <Document file={resumeUrl} loading={<LoadingOverlay visible={true} overlayBlur={2}/>}
+              onLoadSuccess={onDocumentLoadSuccess} onLoadError={console.error}>
       {Array.from(new Array(numPages), (el, index) => <Page key={`page_${index + 1}`} pageNumber={index + 1}
                                                             width={width < 736 ? width * 0.9 : 980}/>)}
     </Document>

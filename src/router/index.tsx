@@ -8,6 +8,7 @@ import FriendlyLink from "@/views/FriendlyLink";
 import Projects from "@/views/Projects";
 import Home from "@/views/Home";
 import About from "@/views/About";
+import {LoadingOverlay} from "@mantine/core";
 
 /**
  * 懒加载组件
@@ -18,7 +19,7 @@ function LazyWrapper(path: string) {
   // React.lazy接受的组件必须为export default形式
   const Component = lazy(() => import(`../views/${path}.tsx`))
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<LoadingOverlay visible={true} overlayBlur={2} />}>
       <Component/>
     </Suspense>
   );
