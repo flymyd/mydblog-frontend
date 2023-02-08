@@ -1,8 +1,8 @@
 import 'github-markdown-css/github-markdown-light.css'
+import {oneDark, oneLight} from "react-syntax-highlighter/dist/esm/styles/prism";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import {Prism as SyntaxHighlighter} from "react-syntax-highlighter";
-import {oneDark, oneLight} from "react-syntax-highlighter/dist/esm/styles/prism";
 import React, {FC} from "react";
 
 const highlighterStyle: any = window.matchMedia('(prefers-color-scheme: dark)').matches ? oneDark : oneLight;
