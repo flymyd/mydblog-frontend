@@ -6,12 +6,15 @@ import {useNavigate} from "react-router-dom";
 import {CONST} from "@/utils/CONST";
 
 const projectsList = [
-  {img: 'a145094a-e1e5-47cb-a85a-0ba278620e9f', route: '/Escape'},
+  {img: 'a145094a-e1e5-47cb-a85a-0ba278620e9f', route: '/Projects/Escape'},
+  {img: 'cff108ac-399e-41aa-b079-1a8f4e0deda4', route: '/Projects/KMS'},
 ]
 const Projects: FC = () => {
   const navigate = useNavigate()
-  const clickCard = (route: string) => {
-    navigate(route)
+  const clickCard = (route: string | Function) => {
+    if (typeof route === "string") {
+      navigate(route)
+    } else route();
   }
   return (
     <>
@@ -21,7 +24,11 @@ const Projects: FC = () => {
           <ul>
             {projectsList.map(v => {
               return <div key={v.route}>
-                <li style={{background: `url(${CONST.obsPath + v.img})`, cursor: 'pointer'}} onClick={() => {
+                <li style={{
+                  background: `url(${CONST.obsPath + v.img}) no-repeat`,
+                  backgroundSize: '100% 100%',
+                  cursor: 'pointer'
+                }} onClick={() => {
                   clickCard(v.route)
                 }}>
                 </li>
