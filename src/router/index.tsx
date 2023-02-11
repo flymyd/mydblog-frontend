@@ -15,9 +15,8 @@ import {LoadingOverlay} from "@mantine/core";
  * @param path
  * @returns
  */
-function LazyWrapper(components: string, folder = "") {
-  // React.lazy接受的组件必须为export default形式
-  const url = `../views/${folder}${components}.tsx`;
+function LazyWrapper(components: string) {
+  const url = `../views/${components}.tsx`;
   const Component = lazy(() => import(url))
   return (
     <Suspense fallback={<LoadingOverlay visible={true} overlayBlur={2}/>}>
@@ -33,11 +32,11 @@ let router = [
   // },
   {
     path: "/Projects/Escape",
-    element: LazyWrapper('Escape', 'Projects/')
+    element: LazyWrapper('Escape')
   },
   {
     path: "/Projects/KMS",
-    element: LazyWrapper('KMS', 'Projects/')
+    element: LazyWrapper('KMS')
   },
   {
     path: "/",
