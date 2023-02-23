@@ -28,7 +28,7 @@ const Detail: FC = () => {
   return (
     <>
       <FluidWrapper>
-        <div style={{margin: '16px 0'}}>
+        <div style={{margin: '16px 0 32px 0'}}>
           <MarkdownLoader markdown={markdown}></MarkdownLoader>
         </div>
       </FluidWrapper>
