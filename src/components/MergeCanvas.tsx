@@ -8,7 +8,27 @@ interface Props {
 const imageUrl = "cat-bg.png"; // 固定的图片url
 
 const MergeCanvas: React.FC<Props> = ({avatarUrl, text}) => {
+  const suffix = '?v=' + new Date().getTime();
   const canvasRef = useRef<HTMLCanvasElement>(null); // 创建一个canvas引用
+  const saveImg = () => {
+    const canvas: any = canvasRef.current;
+    if (canvas) {
+      // let image = new Image();
+      // image.src = canvas.toDataURL({format: 'image/png', quality: 1, width: canvas.width, height: canvas.height});
+      // let url = image.src.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+      // window.open(url);
+      // 创建一个 a 标签，并设置 href 和 download 属性
+      const el = document.createElement('a');
+      // 设置 href 为图片经过 base64 编码后的字符串，默认为 png 格式
+      el.href = canvas.toDataURL();
+      el.download = 'cat.png';
+
+      // 创建一个点击事件并对 a 标签进行触发
+      const event = new MouseEvent('click');
+      el.dispatchEvent(event);
+
+    }
+  }
   useEffect(() => {
     const canvas = canvasRef.current; // 获取canvas元素
     if (canvas) {
@@ -16,9 +36,11 @@ const MergeCanvas: React.FC<Props> = ({avatarUrl, text}) => {
       if (ctx) {
         ctx.clearRect(0, 0, canvas.width, canvas.height); // 清空画布
         const image = new Image(); // 创建一个图片对象
-        image.src = imageUrl; // 设置图片对象的源地址为imageUrl
+        image.src = imageUrl;
+        image.crossOrigin = 'anonymous'
         const avatar = new Image();
-        avatar.src = avatarUrl;
+        avatar.src = avatarUrl + suffix;
+        avatar.crossOrigin = 'anonymous'
         image.onload = () => {
           const scale = Math.min(
             (window.innerWidth * 0.8) / image.width,
@@ -39,7 +61,8 @@ const MergeCanvas: React.FC<Props> = ({avatarUrl, text}) => {
   // 定义一个函数，用于绘制头像
   const drawAvatar = (ctx: CanvasRenderingContext2D, canvas: any) => {
     const avatar = new Image();
-    avatar.src = avatarUrl;
+    avatar.src = avatarUrl + suffix;
+    avatar.crossOrigin = 'anonymous'
     const avatarSize = Math.min(canvas.width, canvas.height) / 4; // 设置头像的大小为画布宽高的最小值的四分之一
     const avatarX = (canvas.width - avatarSize) / 1.1;
     const avatarY = (canvas.height - avatarSize) / 10; // 设置头像的纵坐标为画布中心
@@ -73,6 +96,7 @@ const MergeCanvas: React.FC<Props> = ({avatarUrl, text}) => {
 
   return <div className="mb-10">
     <canvas ref={canvasRef}/>
+    {(imageUrl || text) ? <button className="mt-5" onClick={() => saveImg()}>点击下载</button> : <></>}
   </div>; // 返回一个canvas元素，并将引用传递给它
 };
 

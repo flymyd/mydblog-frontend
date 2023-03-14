@@ -1,4 +1,4 @@
-import {FC, useState} from "react";
+import {FC, useEffect, useState} from "react";
 import FluidWrapper from "@/Framework/FluidWrapper";
 import ToHomeRow from "@/components/ToHomeRow";
 import useTypewriter from "react-typewriter-hook";
@@ -50,11 +50,12 @@ const CatGenerate: FC = () => {
   }
   const getAmenLogo = (amenType: string) => {
     if (amenType) {
-      const letterMatch = amenType.match(/[a-z]+/i); // 匹配任意个大小写字母
-      const numberMatch = amenType.match(/\d+/); // 匹配任意个数字
-      const letter = letterMatch ? letterMatch[0] : "";
-      const number = numberMatch ? numberMatch[0] : "";
-      return logoSource.replace("cy", letter).replace("skill-1", "skill-" + number);
+      return 'jx3/' + amenType + '.png'
+      // const letterMatch = amenType.match(/[a-z]+/i); // 匹配任意个大小写字母
+      // const numberMatch = amenType.match(/\d+/); // 匹配任意个数字
+      // const letter = letterMatch ? letterMatch[0] : "";
+      // const number = numberMatch ? numberMatch[0] : "";
+      // return logoSource.replace("cy", letter).replace("skill-1", "skill-" + number);
     } else return ''
   }
   const welcome = useTypewriter('谁不想拿捏猫猫呢')
