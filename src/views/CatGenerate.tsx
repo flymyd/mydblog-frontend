@@ -50,7 +50,8 @@ const CatGenerate: FC = () => {
   }
   const getAmenLogo = (amenType: string) => {
     if (amenType) {
-      return 'https://blog.van.ac.cn/jx3/' + amenType + '.png'
+      // return 'https://blog.van.ac.cn/jx3/' + amenType + '.png'
+      return 'https://mydblog.obs.cn-east-3.myhuaweicloud.com/jx3/' + amenType + '.png'
       // const letterMatch = amenType.match(/[a-z]+/i); // 匹配任意个大小写字母
       // const numberMatch = amenType.match(/\d+/); // 匹配任意个数字
       // const letter = letterMatch ? letterMatch[0] : "";
