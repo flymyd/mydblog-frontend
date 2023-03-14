@@ -8,7 +8,8 @@ interface Props {
 const imageUrl = "cat-bg.png"; // 固定的图片url
 
 const MergeCanvas: React.FC<Props> = ({avatarUrl, text}) => {
-  const suffix = '?v=' + new Date().getTime();
+  // const suffix = '?v=' + new Date().getTime();
+  const suffix = '';
   const canvasRef = useRef<HTMLCanvasElement>(null); // 创建一个canvas引用
   const saveImg = () => {
     const canvas: any = canvasRef.current;
