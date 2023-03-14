@@ -19,7 +19,7 @@ function LazyWrapper(path: string) {
   // React.lazy接受的组件必须为export default形式
   const Component = lazy(() => import(`../views/${path}.tsx`))
   return (
-    <Suspense fallback={<LoadingOverlay visible={true} overlayBlur={2} />}>
+    <Suspense fallback={<LoadingOverlay visible={true} overlayBlur={2}/>}>
       <Component/>
     </Suspense>
   );
@@ -75,6 +75,10 @@ let router = [
   {
     path: "/Projects/KMS",
     element: LazyWrapper('KMS')
+  },
+  {
+    path: "/Projects/CatGenerate",
+    element: LazyWrapper('CatGenerate')
   },
 ];
 

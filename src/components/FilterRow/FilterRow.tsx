@@ -18,6 +18,7 @@ interface FilterRowType {
   showIcon?: boolean,
   showReset?: boolean,
   onReset?: any,
+  hideLeft?: boolean,
   elements?: Array<{
     type: 'input' | 'select',
     name: string,
@@ -35,17 +36,20 @@ const FilterRow: FC<FilterRowType> = (props) => {
     <FluidWrapper style={{borderBottom: dividerStyle}}>
       <div className="flex flex-row items-center align-center" css={filterRowStyle}
            style={screenWidth < 768 ? {flexDirection: 'column', alignItems: 'flex-start'} : {}}>
-        <div className="flex flex-row items-center align-center"
-             style={screenWidth < 768 ? {marginBottom: 12} : {marginRight: 12}}>
-          {props.showIcon === false ? <></> : <Icon icon="carbon:collapse-categories" style={{marginRight: 5}}/>}
-          <span css={noSelect}
-                style={{
-                  color: props.showIcon === false ? '#6E6E73' : '#1D1D1F',
-                  fontSize: 14,
-                  fontWeight: 700
-                }}>筛选</span>
-        </div>
-        <div className="flex flex-row items-center align-center flex-1" style={screenWidth < 768 ? {flexDirection: 'column', alignItems: 'flex-start'} : {}}>
+        {
+          props.hideLeft ? <></> : <div className="flex flex-row items-center align-center"
+                                        style={screenWidth < 768 ? {marginBottom: 12} : {marginRight: 12}}>
+            {props.showIcon === false ? <></> : <Icon icon="carbon:collapse-categories" style={{marginRight: 5}}/>}
+            <span css={noSelect}
+                  style={{
+                    color: props.showIcon === false ? '#6E6E73' : '#1D1D1F',
+                    fontSize: 14,
+                    fontWeight: 700
+                  }}>筛选</span>
+          </div>
+        }
+        <div className="flex flex-row items-center align-center flex-1"
+             style={screenWidth < 768 ? {flexDirection: 'column', alignItems: 'flex-start'} : {}}>
           {
             props.elements ? props.elements.map((el: any) => {
               let slotElement = <></>;
@@ -64,7 +68,8 @@ const FilterRow: FC<FilterRowType> = (props) => {
               } else if (el.type == 'input') {
                 slotElement = <input/>;
               }
-              return <div style={screenWidth < 768 ? {marginBottom: 12} : {marginLeft: 12}} key={el.name}>
+              return <div style={screenWidth < 768 ? {marginBottom: 12} : {marginLeft: props.hideLeft ? 0 : 12}}
+                          key={el.name}>
                 {el.label ? <span>{el.label}</span> : <></>}
                 {slotElement}
               </div>

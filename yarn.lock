@@ -3021,6 +3021,11 @@ react-refresh@^0.14.0:
   resolved "https://registry.npmmirror.com/react-refresh/-/react-refresh-0.14.0.tgz#4e02825378a5f227079554d4284889354e5f553e"
   integrity sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==
 
+react-responsive-canvas@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmmirror.com/react-responsive-canvas/-/react-responsive-canvas-1.0.2.tgz#f58b8f296b0c45d66c2fbc26f04f71b8c2f500a1"
+  integrity sha512-r1cV0LPsxlMDdeJ53u0obUIxFPKCCD7/T3XJ/5wj0XmJi/u3qO27h0RZ3uZowSgVg+bilEKosDKxVtEr76v/JA==
+
 react-router-dom@^6.3.0:
   version "6.4.0"
   resolved "https://registry.npmmirror.com/react-router-dom/-/react-router-dom-6.4.0.tgz#a7d7c394c9e730b045cdd4f5d6c2d1ccb9e26947"

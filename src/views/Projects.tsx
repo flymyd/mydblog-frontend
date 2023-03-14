@@ -8,6 +8,7 @@ import {CONST} from "@/utils/CONST";
 const projectsList = [
   {img: 'a145094a-e1e5-47cb-a85a-0ba278620e9f', route: '/Projects/Escape'},
   {img: 'cff108ac-399e-41aa-b079-1a8f4e0deda4', route: '/Projects/KMS'},
+  {img: '763fb304-5b85-4aee-bc0c-a48d96f60785', route: '/Projects/CatGenerate'},
 ]
 const Projects: FC = () => {
   const navigate = useNavigate()
