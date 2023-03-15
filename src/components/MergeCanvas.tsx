@@ -51,7 +51,7 @@ const MergeCanvas: React.FC<Props> = ({avatarUrl, text}) => {
           canvas.height = image.height * scale; // 设置canvas的高度为缩放后的图片高度
           ctx.drawImage(image, 0, 0, canvas.width, canvas.height); // 将图片绘制到画布上
           avatar.onload = () => {
-            drawAvatar(ctx, canvas);
+            drawAvatar(ctx, canvas, avatar);
             drawText(ctx, canvas);
           };
         };
@@ -60,10 +60,7 @@ const MergeCanvas: React.FC<Props> = ({avatarUrl, text}) => {
   }, [avatarUrl, text]); // 只在组件挂载时执行一次这个副作用函数
 
   // 定义一个函数，用于绘制头像
-  const drawAvatar = (ctx: CanvasRenderingContext2D, canvas: any) => {
-    const avatar = new Image();
-    avatar.src = avatarUrl + suffix;
-    avatar.crossOrigin = 'anonymous'
+  const drawAvatar = (ctx: CanvasRenderingContext2D, canvas: any, avatar: HTMLImageElement) => {
     const avatarSize = Math.min(canvas.width, canvas.height) / 4; // 设置头像的大小为画布宽高的最小值的四分之一
     const avatarX = (canvas.width - avatarSize) / 1.1;
     const avatarY = (canvas.height - avatarSize) / 10; // 设置头像的纵坐标为画布中心
